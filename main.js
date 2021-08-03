@@ -51,7 +51,7 @@ downloadBtn.addEventListener('click', ()=> {
 backColor.addEventListener('input', (e)=> {
     let col = getRgb(backColor.value);
     backDiv.style.background = 
-    `rgb(${col.r}, ${col.g}, ${col.b})`;
+    `rgb(${col.r * 255}, ${col.g * 255}, ${col.b * 255})`;
 })
 backColor.addEventListener('change', (e)=> {
     let col = getRgb(backColor.value);
