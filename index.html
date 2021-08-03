@@ -37,18 +37,21 @@
 
 <body>
     <!-- <textarea name="test" id="textarea" cols="30" rows="10"></textarea> -->
+    <h1 align="center">Guessing Suitable text color(B/W) according to background using ML</h1>
     <div id="back">
         <div id="white">White Text</div>
         <div id="black">Black Text</div>
         <hr style="width:100%;box-shadow: 2px 2px 3px grey;">
         <div id="guess">Guess Text</div>
     </div>
-    <div id="buttons-container">
+    <div class="buttons-container">
         <button id="white-btn" class="buttons"
             title="click if you think the `Guess Text` color should be white">White</button>
         <button id="black-btn" class="buttons"
             title="click if you think the `Guess Text` color should be black">Black</button>
         <button id="ok-btn" class="buttons" title="Click this if the `Guess Text` color is looking good">Ok</button>
+    </div>
+    <div class="buttons-container">
         <button id="print-btn" class="buttons"
             title="Log the whole trained data (including the data you have trained too)">Log Data</button>
         <button id='download-btn' class="buttons"
@@ -56,7 +59,6 @@
         <button id='train-btn' class="buttons" title="Will be adde soon" disabled>Train</button>
         <input type="color" class="buttons" name="back-color" id="back-color" title="Choose a costume background color">
     </div>
-
 </body>
 
 </html>
