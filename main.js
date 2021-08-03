@@ -4,8 +4,10 @@ const guessEl = document.getElementById('guess');
 const backDiv = document.getElementById('back'); 
 const whiteBtn = document.getElementById('white-btn'); 
 const blackBtn = document.getElementById('black-btn'); 
+const okBtn = document.getElementById('ok-btn'); 
 const printBtn = document.getElementById('print-btn'); 
 const downloadBtn = document.getElementById('download-btn'); 
+const backColor = document.getElementById('back-color'); 
 
 //Creating neural network
 const net = new brain.NeuralNetwork();
@@ -27,14 +29,15 @@ net.train(data); //Getting data from "./train.js"
 
 
 // Event Listeners
-window.addEventListener('load', ()=> {
-    setRandCol();
-});
+setRandCol();
 whiteBtn.addEventListener('click', () => {
     chooseCol(1);
 });
 blackBtn.addEventListener('click', () => {
     chooseCol(0);
+});
+okBtn.addEventListener('click', () => {
+    chooseCol(net.run(randCol)[0]>0.5?1:0);
 });
 printBtn.addEventListener('click', () => {
     console.log(JSON.stringify(data))
@@ -45,6 +48,20 @@ downloadBtn.addEventListener('click', ()=> {
     downloadFile(`f${fName}.json`, JSON.stringify(data));
 });
 
+backColor.addEventListener('input', (e)=> {
+    let col = getRgb(backColor.value);
+    backDiv.style.background = 
+    `rgb(${col.r}, ${col.g}, ${col.b})`;
+})
+backColor.addEventListener('change', (e)=> {
+    let col = getRgb(backColor.value);
+    backDiv.style.background = 
+    `rgb(${col.r * 255}, ${col.g * 255}, ${col.b * 255})`;
+    const guess = net.run(randCol)[0];
+    // console.log(guess)
+    // console.log(guess > 0.5)
+    guessEl.style.color = guess > 0.5?"#FFF":"#000";
+})
 //Functions
 function setRandCol() {
     randCol = {
@@ -78,4 +95,18 @@ function downloadFile(filename, text) {
     element.click();
   
     document.body.removeChild(element);
+  }
+
+  function getRgb(color) {
+    const r = parseInt(color.substr(1,2), 16) / 255;
+    const g = parseInt(color.substr(3,2), 16) / 255;
+    const b = parseInt(color.substr(5,2), 16) / 255;
+    // console.log(`red: ${r}, green: ${g}, blue: ${b}`)
+    randCol = {
+        r: r,
+        g: g,
+        b: b
+    }
+    return randCol;
+    
   }

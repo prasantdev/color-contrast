@@ -5,9 +5,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ML - JS</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta name="theme-color" content="#242a4f">
+    <meta property="og:title" content="Guess perfect color!">
+    <meta property="og:url" content="https://prasantdev.github.io/color-contrast/">
+    <!-- <meta property="og:image" content="./assets/header_image.png"> -->
+    <meta property="og:description"
+        content="Guessing suitable text colo using ml | It will guess the suitable color of text according to its background color.">
+    <meta property="twitter:title" content="Guess perfect color!">
+    <meta name="twitter:image:alt" content="Guess perfect color!">
+    <meta property="og:site_name" content="Guess perfect color!">
+    <meta name="twitter:card" content="Guess perfect color!">
+    <!-- <meta property="twitter:image" content="./assets/header_image.png"> -->
+    <meta property="twitter:description"
+        content="Guessing the suitable text color using ml.">
+    <meta name="description"
+        content="Guessing suitable text colo using ml | It will guess the suitable color of text according to its background color.">
+    <!-- <link rel="shortcut icon" href="https://arnav-kr.github.io/primetime/assets/icon.png" type="image/x-icon"> -->
+    <!-- <link rel="apple-touch-icon" href="https://arnav-kr.github.io/primetime/assets/icon.png"> -->
+    <meta name="keywords"
+        content="color contrast, ai, ml, prasant kumar, prasantdev, brain.js, web, js, html, css, neural network, memory, data, artificial inteligence, machine learning, sololearn, ai in js, most, best, opensource, ml in js">
+    
+
+    <title>Color contrast | ML - JS</title>
     <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="./train.js"></script>
+    <script type="text/javascript" src="./train.js" defer></script>
     <script src="//unpkg.com/brain.js" defer></script>
     <script src="main.js" defer></script>
 </head>
@@ -17,15 +40,23 @@
     <div id="back">
         <div id="white">White Text</div>
         <div id="black">Black Text</div>
+        <hr style="width:100%;box-shadow: 2px 2px 3px grey;">
         <div id="guess">Guess Text</div>
     </div>
     <div id="buttons-container">
-        <button id="white-btn" class="buttons">White</button>
-        <button id="black-btn" class="buttons">Black</button>
-        <button id="print-btn" class="buttons">Print</button>
-        <button id='download-btn' class="buttons">Download</button>
-        <button id='train-btn' class="buttons">Train</button>
+        <button id="white-btn" class="buttons"
+            title="click if you think the `Guess Text` color should be white">White</button>
+        <button id="black-btn" class="buttons"
+            title="click if you think the `Guess Text` color should be black">Black</button>
+        <button id="ok-btn" class="buttons" title="Click this if the `Guess Text` color is looking good">Ok</button>
+        <button id="print-btn" class="buttons"
+            title="Log the whole trained data (including the data you have trained too)">Log Data</button>
+        <button id='download-btn' class="buttons"
+            title="Download the trained data (including the data you have trained too)">Download</button>
+        <button id='train-btn' class="buttons" title="Will be adde soon" disabled>Train</button>
+        <input type="color" class="buttons" name="back-color" id="back-color" title="Choose a costume background color">
     </div>
+
 </body>
 
 </html>
